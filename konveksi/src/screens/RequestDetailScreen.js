@@ -51,7 +51,7 @@ const RequestDetailScreen = ({navigation}) => {
   }
 
   return (
-    <ScrollView style={{marginBottom:15, flex:1}}>
+    <ScrollView style={{flex:1}}>
 
       <View style={styles.viewTitle}>
       <Text style={styles.titleStyle}> Enter {name} Details </Text>
@@ -117,7 +117,7 @@ const RequestDetailScreen = ({navigation}) => {
       { viewState==="Upload Design" ?
         <View>
         <View style={{flexDirection:'row', justifyContent: 'space-between'}}>
-        <Text style={styles.subTitleStyle}> 5. Upload Design | {image.length} Uploaded </Text>
+        <Text style={styles.subTitleStyle}> 1. Upload Design | {image.length} Uploaded </Text>
         { (image.length !== 0) &&
         <TouchableOpacity
         style={styles.plusStyle}
@@ -165,7 +165,7 @@ const RequestDetailScreen = ({navigation}) => {
 
       { viewState==="Set Amount & Budget" ?
       <View>
-        <Text style={styles.subTitleStyle}> 3. Enter Amount of Item </Text>
+        <Text style={styles.subTitleStyle}> 1. Enter Amount of Item </Text>
         <View style={{flexDirection:'row', marginHorizontal:10}}>
         <TextInput style={styles.inputBox}
           keyboardType="number-pad"
@@ -178,7 +178,7 @@ const RequestDetailScreen = ({navigation}) => {
         <Text style={{alignSelf:'center', flex:3}}> Pcs </Text>
         </View>
 
-        <Text style={styles.subTitleStyle}> 4. Enter Budget </Text>
+        <Text style={styles.subTitleStyle}> 2. Enter Budget </Text>
         <View style={{flexDirection:'row', marginHorizontal:10}}>
         <TextInput style={styles.inputBox}
           keyboardType="number-pad"

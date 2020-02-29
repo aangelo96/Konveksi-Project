@@ -19,7 +19,6 @@ const LoginScreen = ({navigation}) => {
       <View style={styles.viewInput}>
       <Text style={styles.textInput}> Email Address </Text>
       <TextInput style={styles.inputBox}
-        autoFocus
         autoCapitalize="none"
         autoCorrect={false}
         value={email}
