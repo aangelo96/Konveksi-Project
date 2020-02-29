@@ -21,7 +21,7 @@ const QuickView = ({imgSource, colors, callback}) => {
           return (
             <View style={{flex:1, flexDirection:'column'}}>
             <FontAwesome style={{ fontSize: 26, color:item, paddingHorizontal:5 }} name='circle'/>
-            <FontAwesome style={{ fontSize: 26, color:'black', paddingHorizontal:5, top:-26 }} name='circle-o'/>
+            <FontAwesome style={{ fontSize: 26, color:'black', paddingHorizontal:5, position:'absolute'}} name='circle-o'/>
             </View>)
         }}
     />
