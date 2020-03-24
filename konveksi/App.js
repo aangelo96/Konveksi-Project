@@ -8,6 +8,7 @@ import TrackingScreen from './src/screens/TrackingScreen';
 import HistoryScreen from './src/screens/HistoryScreen';
 import RequestScreen from './src/screens/RequestScreen';
 import RequestDetailScreen from './src/screens/RequestDetailScreen';
+import OngoingScreen from './src/screens/OngoingScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import Icon from './src/components/Icon';
 
@@ -31,7 +32,8 @@ const requestNavigator = createStackNavigator({
 });
 
 const trackingNavigator = createStackNavigator({
-  Tracking : TrackingScreen
+  Tracking : TrackingScreen,
+  Ongoing : OngoingScreen
 }, {
   initialRouteName: 'Tracking',
   defaultNavigationOptions: {

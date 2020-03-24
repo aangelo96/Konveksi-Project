@@ -51,7 +51,7 @@ const RequestDetailScreen = ({navigation}) => {
   }
 
   return (
-    <ScrollView style={{flex:1}}>
+    <ScrollView style={{flex:1, marginBottom:10}}>
 
       <View style={styles.viewTitle}>
       <Text style={styles.titleStyle}> Enter {name} Details </Text>
