@@ -17,13 +17,13 @@ This application is made using :
 The basic features that we want to implement :
 1. Login & Signup
 2. User/Customer Side
-   i. Be able to create a request for creating clothings
-   ii. Be able to track current requests
-   ii. Be able to view past requests
+* Be able to create a request for creating clothings
+* Be able to track current requests
+* Be able to view past requests
 3. Konveksi Side
-   i. Be able to submit price bid
-   ii. Be able to accept request
-   iii. Be able to update customer along the process
+* Be able to submit price bid
+* Be able to accept request
+* Be able to update customer along the process
 
 
 
