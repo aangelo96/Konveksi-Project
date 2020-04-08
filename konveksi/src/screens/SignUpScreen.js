@@ -2,20 +2,20 @@ import React, { useState, useContext } from 'react';
 import { View, Text, StyleSheet, TextInput, Dimensions, TouchableOpacity } from 'react-native';
 import { Context as AuthContext } from '../context/AuthContext';
 
-const LoginScreen = ({navigation}) => {
-  const { state, signin } = useContext(AuthContext);
+const SignUpScreen = ({navigation}) => {
+  const { state, signup } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const submit = () => {
     //Fill Submit Code here
-    signin({email, password});
+    signup({email, password});
     //navigation.navigate('Home');
     return;
   };
 
   return (
-    <View>
+    <View style={{flex:1}}>
       <View style={styles.viewTitle}>
       <Text style={styles.title}> Welcome to Konveksiin Aja </Text>
       </View>
@@ -49,14 +49,14 @@ const LoginScreen = ({navigation}) => {
       onPress={() => {
         submit();
       }}>
-        <Text style={styles.buttonText}> Login </Text>
+        <Text style={styles.buttonText}> Sign Up </Text>
       </TouchableOpacity>
 
       <TouchableOpacity
       onPress={() => {
-        navigation.navigate('Signup');
+        navigation.navigate('Login');
       }}>
-        <Text style={styles.signin}> Don't have an account? <Text style={{color:'rgb(32,101,145)', fontWeight:'bold'}}>Sign up</Text> instead </Text>
+        <Text style={styles.signin}> Already have an account? <Text style={{color:'rgb(32,101,145)', fontWeight:'bold'}}>Login</Text> instead </Text>
       </TouchableOpacity>
       </View>
     </View>
@@ -114,4 +114,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default SignUpScreen;

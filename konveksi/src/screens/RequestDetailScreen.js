@@ -6,6 +6,7 @@ import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import ColorView from '../components/ColorView';
 import RequestHeaderView from '../components/RequestHeaderView';
+import trackerApi from '../api/tracker';
 
 const RequestDetailScreen = ({navigation}) => {
   const name = navigation.getParam('name');
@@ -20,11 +21,22 @@ const RequestDetailScreen = ({navigation}) => {
   const colorArray = ["#206591","#EEC729", "#D4512F", "#85BB65", "#FE9800", "#D8D8D8", "#000000", "#FFFFFF"];
   const multiArray = ["None","Inside & Outside","Front & Back"];
 
+  const submitRequest = () => {
+    //post details to API
+
+    //navigate to tracking screen
+
+  };
+
   RequestDetailScreen.navigationOptions = ({ navigation }) => {
     return {
       headerRight: () =>
       <TouchableOpacity
-      onPress={() => navigation.navigate('', {color:colorState, colorOption:colorOption, secondColor:secondColor, amount:amount, budget:budget})}>
+      onPress={
+        () => {
+          submitRequest();
+        }
+      }>
         <FontAwesome name="check" size={25} style={styles.check}/>
       </TouchableOpacity>
     };
@@ -51,7 +63,7 @@ const RequestDetailScreen = ({navigation}) => {
   }
 
   return (
-    <ScrollView style={{flex:1}}>
+    <ScrollView style={{flex:1, marginBottom:10}}>
 
       <View style={styles.viewTitle}>
       <Text style={styles.titleStyle}> Enter {name} Details </Text>
