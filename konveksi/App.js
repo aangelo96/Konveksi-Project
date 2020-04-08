@@ -9,8 +9,21 @@ import HistoryScreen from './src/screens/HistoryScreen';
 import RequestScreen from './src/screens/RequestScreen';
 import RequestDetailScreen from './src/screens/RequestDetailScreen';
 import OngoingScreen from './src/screens/OngoingScreen';
+import SignUpScreen from './src/screens/SignUpScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import Icon from './src/components/Icon';
+import { Provider as AuthProvider } from './src/context/AuthContext';
+import { setNavigator } from './src/navigationRef';
+
+const loginNavigator = createStackNavigator({
+  Signup : SignUpScreen,
+  Login : LoginScreen
+  },{
+  initialRouteName:'Signup',
+  defaultNavigationOptions:{
+    headerShown:false
+  }
+});
 
 const homeNavigator = createStackNavigator({
   Home : HomeScreen
@@ -86,11 +99,20 @@ const tabNav = createBottomTabNavigator({
 );
 
 const switchNav = createSwitchNavigator({
-  Login:{screen: LoginScreen},
+  Login:{screen: loginNavigator},
   Home:{screen: tabNav}
 },
 {
   initialRouteName:'Login'
 });
 
-export default createAppContainer(switchNav);
+const App = createAppContainer(switchNav);
+
+
+export default () => {
+  return (
+    <AuthProvider>
+      <App ref={(navigator) => { setNavigator(navigator) }}/>
+    </AuthProvider>
+  );
+};
