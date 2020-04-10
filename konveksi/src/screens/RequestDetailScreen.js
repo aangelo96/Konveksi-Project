@@ -1,5 +1,5 @@
 import React, { useState , useEffect } from 'react';
-import { View, Text, StyleSheet, Dimensions, FlatList, TextInput, TouchableOpacity, ScrollView, Image} from 'react-native';
+import { View, Text, StyleSheet, Dimensions, FlatList, TextInput, TouchableOpacity, ScrollView, Image, AsyncStorage} from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
@@ -21,25 +21,21 @@ const RequestDetailScreen = ({navigation}) => {
   const colorArray = ["#206591","#EEC729", "#D4512F", "#85BB65", "#FE9800", "#D8D8D8", "#000000", "#FFFFFF"];
   const multiArray = ["None","Inside & Outside","Front & Back"];
 
-  const submitRequest = () => {
-    //post details to API
+  const submitRequest = async () => {
 
-    //navigate to tracking screen
+        const token = await AsyncStorage.getItem('token');
 
-  };
+        try {
+          const response = await trackerApi.post('/order', {color:colorState, secColor:secondColor, option:colorOption, amount:amount, budget:budget, imgs:["","",""]}, {headers:{'Authorization':`Bearer ${token}`}});
+          //navigate to tracking screen
+          navigation.navigate('Ongoing', {track:response.data});
 
-  RequestDetailScreen.navigationOptions = ({ navigation }) => {
-    return {
-      headerRight: () =>
-      <TouchableOpacity
-      onPress={
-        () => {
-          submitRequest();
+        } catch (err) {
+
+          console.log(err);
+
         }
-      }>
-        <FontAwesome name="check" size={25} style={styles.check}/>
-      </TouchableOpacity>
-    };
+
   };
 
   //Function to pick image from device
@@ -63,7 +59,8 @@ const RequestDetailScreen = ({navigation}) => {
   }
 
   return (
-    <ScrollView style={{flex:1, marginBottom:10}}>
+    <View style={{flex:1, height:Dimensions.get('window').height, backgroundColor:'white'}}>
+    <ScrollView>
 
       <View style={styles.viewTitle}>
       <Text style={styles.titleStyle}> Enter {name} Details </Text>
@@ -123,6 +120,7 @@ const RequestDetailScreen = ({navigation}) => {
             </View>
             : null
       }
+      <Text> Color Option {colorState} </Text>
       </View> : null
       }
 
@@ -207,8 +205,15 @@ const RequestDetailScreen = ({navigation}) => {
         }
       </View> : null
       }
-
     </ScrollView>
+    <TouchableOpacity
+    onPress={() => {
+      submitRequest();
+    }}
+    style={styles.circle}>
+    <FontAwesome name="check" size={30} style={styles.check}/>
+    </TouchableOpacity>
+    </View>
   );
 };
 
@@ -251,8 +256,19 @@ const styles = StyleSheet.create({
     borderBottomWidth:1
   },
   check: {
-    right: 10,
-    color: 'green'
+    color: 'white',
+    alignSelf: 'center'
+  },
+  circle: {
+    right: 0,
+    bottom: 20,
+    backgroundColor: 'green',
+    position: 'absolute',
+    width: 80,
+    height:70,
+    borderTopLeftRadius:10,
+    borderBottomLeftRadius:10,
+    justifyContent: 'center'
   }
 });
 
