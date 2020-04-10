@@ -5,13 +5,6 @@ import BidView from '../components/BidView';
 import { FontAwesome } from '@expo/vector-icons';
 
 const OngoingScreen = ({navigation}) => {
-  //We will have an array of objects called "Ongoing Request"
-  /*Each "Ongoing Request" will give a brief information including :
-    - Request Status
-    - Recent Update
-    - Request ID
-    - Estimated Finish of next deliverable (if after bid)
-  */
 
   const bidArray = [
     {name:'Konveksi Biasa Aja', ppItem:10, pTotal:1500, sizing:[
@@ -24,8 +17,9 @@ const OngoingScreen = ({navigation}) => {
       {size:'s', length:60, width:50},{size:'m', length:62, width:52},{size:'l', length:64, width:54}
     ], duration:15, rating:4.5, nRating:30}];
 
-  const status = navigation.getParam('status');
-  const id = navigation.getParam('id');
+  const track = navigation.getParam('track');
+  const status = track.status;
+  const id = track._id;
 
   return (
     <View style={{flex:1}}>
@@ -94,7 +88,7 @@ const OngoingScreen = ({navigation}) => {
     },
     shadowOpacity: 0.30,
     shadowRadius: 4.65,
-    elevation: 8,}}> Order No. {id} </Text>
+    elevation: 8, textAlign:'center'}}> Order No. {id} </Text>
     <Text style={{marginVertical:5, fontWeight:'bold'}}> Bids Available : 3 / 25 </Text>
 
     <FlatList
