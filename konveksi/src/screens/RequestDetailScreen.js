@@ -69,7 +69,7 @@ const RequestDetailScreen = ({navigation}) => {
       <RequestHeaderView state={viewState} callback={setView}/>
 
       { viewState==="Choose Color" ?
-        <View>
+        <View style={{paddingBottom:10}}>
         <Text style={styles.subTitleStyle}> 1. Choose Colors </Text>
         <FlatList
           style={styles.FlatList}
@@ -120,12 +120,11 @@ const RequestDetailScreen = ({navigation}) => {
             </View>
             : null
       }
-      <Text> Color Option {colorState} </Text>
       </View> : null
       }
 
       { viewState==="Upload Design" ?
-        <View>
+        <View style={{paddingBottom:10}}>
         <View style={{flexDirection:'row', justifyContent: 'space-between'}}>
         <Text style={styles.subTitleStyle}> 1. Upload Design | {image.length} Uploaded </Text>
         { (image.length !== 0) &&
@@ -206,13 +205,13 @@ const RequestDetailScreen = ({navigation}) => {
       </View> : null
       }
     </ScrollView>
-    <TouchableOpacity
+    { viewState === "Set Amount & Budget" ? <TouchableOpacity
     onPress={() => {
       submitRequest();
     }}
     style={styles.circle}>
     <FontAwesome name="check" size={30} style={styles.check}/>
-    </TouchableOpacity>
+    </TouchableOpacity> : null }
     </View>
   );
 };

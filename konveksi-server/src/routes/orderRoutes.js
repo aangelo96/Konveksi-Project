@@ -57,12 +57,9 @@ router.post('/fetchlist', async (req,res) => {
       return res.status(401).send({ error: 'You must be logged in.' })
     }
 
-    console.log("aaa");
     const { userId } = payload;
-
     const user = await User.findById(userId);
 
-    console.log("abc");
     if (!user) {
       return res.status(422).send({ error: 'Must be logged in'});
     }
@@ -99,6 +96,40 @@ router.post('/fetchdetail', async (req,res) => {
     console.log(err);
 
   }
+
+});
+
+/*FETCHING A LIST OF ORDERS*/
+router.post('/history', async (req,res) => {
+
+  const {token} = req.body;
+  console.log(token);
+
+  jwt.verify(token, 'my_secret_key', async (err, payload) => {
+    if (err) {
+      return res.status(401).send({ error: 'You must be logged in.' })
+    }
+
+    const { userId } = payload;
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(422).send({ error: 'Must be logged in'});
+    }
+
+    try {
+
+      const orders = await Track.find({userId:user._id, status:"Finished"});
+      res.send(orders);
+
+    } catch (err) {
+
+      console.log(err);
+
+    }
+
+  });
+
 
 });
 
