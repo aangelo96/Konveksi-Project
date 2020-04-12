@@ -11,7 +11,7 @@ const TrackMiniView = ({id, status, lastUpdate, nextDeadline, img}) => {
   */
 
   return (
-    <View style={{flexDirection:'row', marginVertical:10, paddingLeft:15}}>
+    <View style={{flexDirection:'row', marginVertical:10, paddingLeft:15, paddingRight:10}}>
       <Image source={img} style={{width:80, height:80}}/>
       <View style={{marginLeft:5}}>
         <Text style={{fontWeight:'bold'}}> ORDER No. {id} </Text>
@@ -20,7 +20,7 @@ const TrackMiniView = ({id, status, lastUpdate, nextDeadline, img}) => {
         <Text> {status} Deadline : {nextDeadline} </Text> :
         <Text> Number of Bids : {nextDeadline} </Text>
         }
-        <Text> Last Updated on {lastUpdate} </Text>
+        <Text style={{width:275}}> Last Updated on : {lastUpdate} </Text>
         </View>
     </View>
   );
