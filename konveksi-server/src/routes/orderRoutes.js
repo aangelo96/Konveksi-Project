@@ -66,7 +66,7 @@ router.post('/fetchlist', async (req,res) => {
 
     try {
 
-      const orders = await Track.find({userId:user._id});
+      const orders = await Track.find({userId:user._id, status:{$ne:"Finished"}});
       res.send(orders);
 
     } catch (err) {
