@@ -50,7 +50,6 @@ router.post('/order', async (req,res) => {
 router.post('/fetchlist', async (req,res) => {
 
   const {token} = req.body;
-  console.log(token);
 
   jwt.verify(token, 'my_secret_key', async (err, payload) => {
     if (err) {
@@ -103,7 +102,6 @@ router.post('/fetchdetail', async (req,res) => {
 router.post('/history', async (req,res) => {
 
   const {token} = req.body;
-  console.log(token);
 
   jwt.verify(token, 'my_secret_key', async (err, payload) => {
     if (err) {

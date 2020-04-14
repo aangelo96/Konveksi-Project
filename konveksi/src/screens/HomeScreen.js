@@ -19,10 +19,12 @@ const HomeScreen = ({navigation}) => {
   return (
   <View style={{zIndex:10}}>
       <Image source={mainImg} style={styles.imgStyle}/>
-    <View style={styles.getStarted}>
+    <TouchableOpacity style={styles.getStarted} onPress={() => {
+      navigation.navigate('GetStarted');
+    }}>
       <Text style={styles.startText}> Get Started </Text>
       <Icon name="arrow-circle-right" color={'white'} style={{alignSelf:'center'}}/>
-    </View>
+    </TouchableOpacity>
     <View style={styles.bottomView}>
       <View style={{flexDirection:'row', justifyContent:'space-between'}}>
         <Text style={styles.title}> Made with Konveksiin Aja </Text>

@@ -11,6 +11,7 @@ import RequestDetailScreen from './src/screens/RequestDetailScreen';
 import OngoingScreen from './src/screens/OngoingScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import LoginScreen from './src/screens/LoginScreen';
+import GetStartedScreen from './src/screens/GetStartedScreen';
 import Icon from './src/components/Icon';
 import { Provider as AuthProvider } from './src/context/AuthContext';
 import { setNavigator } from './src/navigationRef';
@@ -26,7 +27,8 @@ const loginNavigator = createStackNavigator({
 });
 
 const homeNavigator = createStackNavigator({
-  Home : HomeScreen
+  Home : HomeScreen,
+  GetStarted : GetStartedScreen
 }, {
   initialRouteName: 'Home',
   defaultNavigationOptions: {
