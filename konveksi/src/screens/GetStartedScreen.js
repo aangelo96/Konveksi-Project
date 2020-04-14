@@ -61,6 +61,7 @@ const GetStartedScreen = ({navigation}) => {
       </TouchableOpacity> :
       <View>
       <TouchableOpacity style={styles.button} onPress={()=>{
+        navigation.navigate('Home');
         navigation.navigate('Request');
       }}>
       <Text style={{textAlign:'center', color:'white', fontWeight:'bold'}}> Create Order </Text>
