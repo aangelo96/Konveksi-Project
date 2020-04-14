@@ -28,6 +28,7 @@ const RequestDetailScreen = ({navigation}) => {
         try {
           const response = await trackerApi.post('/order', {color:colorState, secColor:secondColor, option:colorOption, amount:amount, budget:budget, imgs:["","",""]}, {headers:{'Authorization':`Bearer ${token}`}});
           //navigate to tracking screen
+          navigation.navigate('Request');
           navigation.navigate('Ongoing', {track:response.data});
 
         } catch (err) {
