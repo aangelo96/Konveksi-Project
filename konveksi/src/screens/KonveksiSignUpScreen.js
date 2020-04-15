@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TextInput, Dimensions, TouchableOpacity } from 
 import { Context as AuthContext } from '../context/AuthContext';
 import { FontAwesome } from '@expo/vector-icons';
 
-const SignUpScreen = ({navigation}) => {
+const KonveksiSignUpScreen = ({navigation}) => {
   const { state, signup } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,11 +19,12 @@ const SignUpScreen = ({navigation}) => {
     <View style={{flex:1}}>
       <View style={styles.viewTitle}>
       <TouchableOpacity style={{position:'absolute', right:20, top:50, backgroundColor:'white', width:50, height:50, justifyContent:'center', borderRadius:50}} onPress={() => {
-        navigation.navigate('KonveksiSignUp');
+        navigation.navigate('Signup');
       }}>
-      <FontAwesome style={{fontSize:24, color:'rgb(32,101,145)', alignSelf:'center'}} name='institution'/>
+      <FontAwesome style={{fontSize:24, color:'rgb(32,101,145)', alignSelf:'center'}} name='user'/>
       </TouchableOpacity>
       <Text style={styles.title}> Welcome to Konveksiin Aja </Text>
+      <Text style={styles.subtitle}> Sign Up as Konveksi </Text>
       </View>
       <View style={styles.viewInput}>
       <Text style={styles.textInput}> Email Address </Text>
@@ -60,7 +61,7 @@ const SignUpScreen = ({navigation}) => {
 
       <TouchableOpacity
       onPress={() => {
-        navigation.navigate('Login');
+        navigation.navigate('KonveksiLogin');
       }}>
         <Text style={styles.signin}> Already have an account? <Text style={{color:'rgb(32,101,145)', fontWeight:'bold'}}>Login</Text> instead </Text>
       </TouchableOpacity>
@@ -80,6 +81,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     color: 'white',
     fontWeight: 'bold'
+  },
+  subtitle : {
+    fontSize: 16,
+    alignSelf: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    marginTop:20
   },
   viewInput : {
     backgroundColor:'white',
@@ -120,4 +128,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignUpScreen;
+export default KonveksiSignUpScreen;

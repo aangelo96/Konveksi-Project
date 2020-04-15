@@ -10,7 +10,9 @@ import RequestScreen from './src/screens/RequestScreen';
 import RequestDetailScreen from './src/screens/RequestDetailScreen';
 import OngoingScreen from './src/screens/OngoingScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
+import KonveksiSignUpScreen from './src/screens/KonveksiSignUpScreen';
 import LoginScreen from './src/screens/LoginScreen';
+import KonveksiLoginScreen from './src/screens/KonveksiLoginScreen';
 import GetStartedScreen from './src/screens/GetStartedScreen';
 import Icon from './src/components/Icon';
 import { Provider as AuthProvider } from './src/context/AuthContext';
@@ -18,7 +20,9 @@ import { setNavigator } from './src/navigationRef';
 
 const loginNavigator = createStackNavigator({
   Signup : SignUpScreen,
-  Login : LoginScreen
+  Login : LoginScreen,
+  KonveksiSignUp : KonveksiSignUpScreen,
+  KonveksiLogin : KonveksiLoginScreen
   },{
   initialRouteName:'Signup',
   defaultNavigationOptions:{

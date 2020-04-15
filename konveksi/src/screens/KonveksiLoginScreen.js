@@ -1,29 +1,24 @@
 import React, { useState, useContext } from 'react';
 import { View, Text, StyleSheet, TextInput, Dimensions, TouchableOpacity } from 'react-native';
 import { Context as AuthContext } from '../context/AuthContext';
-import { FontAwesome } from '@expo/vector-icons';
 
-const SignUpScreen = ({navigation}) => {
-  const { state, signup } = useContext(AuthContext);
+const KonveksiLoginScreen = ({navigation}) => {
+  const { state, signin } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const submit = () => {
     //Fill Submit Code here
-    signup({email, password});
+    signin({email, password});
     //navigation.navigate('Home');
     return;
   };
 
   return (
-    <View style={{flex:1}}>
+    <View>
       <View style={styles.viewTitle}>
-      <TouchableOpacity style={{position:'absolute', right:20, top:50, backgroundColor:'white', width:50, height:50, justifyContent:'center', borderRadius:50}} onPress={() => {
-        navigation.navigate('KonveksiSignUp');
-      }}>
-      <FontAwesome style={{fontSize:24, color:'rgb(32,101,145)', alignSelf:'center'}} name='institution'/>
-      </TouchableOpacity>
       <Text style={styles.title}> Welcome to Konveksiin Aja </Text>
+      <Text style={styles.subtitle}> Login as Konveksi </Text>
       </View>
       <View style={styles.viewInput}>
       <Text style={styles.textInput}> Email Address </Text>
@@ -55,14 +50,14 @@ const SignUpScreen = ({navigation}) => {
       onPress={() => {
         submit();
       }}>
-        <Text style={styles.buttonText}> Sign Up </Text>
+        <Text style={styles.buttonText}> Login </Text>
       </TouchableOpacity>
 
       <TouchableOpacity
       onPress={() => {
-        navigation.navigate('Login');
+        navigation.navigate('KonveksiSignUp');
       }}>
-        <Text style={styles.signin}> Already have an account? <Text style={{color:'rgb(32,101,145)', fontWeight:'bold'}}>Login</Text> instead </Text>
+        <Text style={styles.signin}> Don't have an account? <Text style={{color:'rgb(32,101,145)', fontWeight:'bold'}}>Sign up</Text> instead </Text>
       </TouchableOpacity>
       </View>
     </View>
@@ -80,6 +75,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     color: 'white',
     fontWeight: 'bold'
+  },
+  subtitle : {
+    fontSize: 16,
+    alignSelf: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    marginTop:20
   },
   viewInput : {
     backgroundColor:'white',
@@ -120,4 +122,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignUpScreen;
+export default KonveksiLoginScreen;
