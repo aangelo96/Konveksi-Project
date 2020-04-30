@@ -1,5 +1,4 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
@@ -13,6 +12,7 @@ import SignUpScreen from './src/screens/SignUpScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import GetStartedScreen from './src/screens/GetStartedScreen';
 import LoadingScreen from './src/screens/LoadingScreen';
+import AccountScreen from './src/screens/AccountScreen';
 import Icon from './src/components/Icon';
 import { Provider as AuthProvider } from './src/context/AuthContext';
 import { setNavigator } from './src/navigationRef';
@@ -32,10 +32,7 @@ const homeNavigator = createStackNavigator({
   Home : HomeScreen,
   GetStarted : GetStartedScreen
 }, {
-  initialRouteName: 'Home',
-  defaultNavigationOptions: {
-    title: 'Konveksiin Aja'
-  }
+  initialRouteName: 'Home'
 });
 
 const requestNavigator = createStackNavigator({
@@ -67,6 +64,12 @@ const historyNavigator = createStackNavigator({
   }
 });
 
+const accountNavigator = createStackNavigator({
+  Account: AccountScreen
+}, {
+  initialRouteName: 'Account'
+});
+
 const tabNav = createBottomTabNavigator({
   Home: {
     screen:homeNavigator,
@@ -90,6 +93,12 @@ const tabNav = createBottomTabNavigator({
     screen:historyNavigator,
     navigationOptions: {
       tabBarIcon: ({tintColor}) => <Icon name="book" color={tintColor} />
+    }
+  },
+  Account: {
+    screen: accountNavigator,
+    navigationOptions: {
+      tabBarIcon: ({tintColor}) => <Icon name="user" color={tintColor} />
     }
   }
 },

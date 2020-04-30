@@ -14,6 +14,8 @@ const SignUpScreen = ({navigation}) => {
     return;
   };
 
+  console.log("in sign up page");
+
   return (
     <View style={{flex:1}}>
       <View style={styles.viewTitle}>

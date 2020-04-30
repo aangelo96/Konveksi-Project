@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, StyleSheet, Dimensions, Image, TouchableOpacity, FlatList } from 'react-native';
 import Icon from '../components/Icon';
+import { Ionicons } from '@expo/vector-icons';
 import QuickView from '../components/QuickView';
+import { Context as AuthContext } from '../context/AuthContext';
 
 const HomeScreen = ({navigation}) => {
   const [mainImg, updateImg] = useState(require('../../assets/hoodieImg/hoodieSample.jpg'));
+  const { signout } = useContext(AuthContext);
 
   const arrObj = [
     { id : '1', name: require('../../assets/hoodieImg/hoodieSample.jpg'), color: ['rgb(32,101,145)']},
@@ -43,6 +46,16 @@ const HomeScreen = ({navigation}) => {
     </View>
   </View>
   )
+};
+
+HomeScreen.navigationOptions = ({ navigation }) => {
+
+  return {
+      title: "Konveksiin Aja",
+      // headerRight: () => <TouchableOpacity onPress={signout}>
+      //         <Ionicons name="md-exit" style={styles.signout} />
+      //     </TouchableOpacity>
+  };
 };
 
 const styles = StyleSheet.create({
@@ -89,6 +102,10 @@ const styles = StyleSheet.create({
   title:{
     fontWeight:'bold',
     fontSize:20
+  },
+  signout: {
+    fontSize: 25,
+    marginRight: 15
   }
 });
 
