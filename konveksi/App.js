@@ -12,15 +12,17 @@ import OngoingScreen from './src/screens/OngoingScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import GetStartedScreen from './src/screens/GetStartedScreen';
+import LoadingScreen from './src/screens/LoadingScreen';
 import Icon from './src/components/Icon';
 import { Provider as AuthProvider } from './src/context/AuthContext';
 import { setNavigator } from './src/navigationRef';
 
 const loginNavigator = createStackNavigator({
+  Loading: LoadingScreen,
   Signup : SignUpScreen,
   Login : LoginScreen
   },{
-  initialRouteName:'Signup',
+  initialRouteName:'Loading',
   defaultNavigationOptions:{
     headerShown:false
   }
@@ -109,7 +111,6 @@ const switchNav = createSwitchNavigator({
 });
 
 const App = createAppContainer(switchNav);
-
 
 export default () => {
   return (
