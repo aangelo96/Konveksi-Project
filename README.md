@@ -72,7 +72,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Mobile App created using React Native
+Mobile App created using React Native for clothes konveksion
 
 
 
