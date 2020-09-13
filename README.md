@@ -40,7 +40,7 @@
     <a href="https://github.com/aangelo96/Konveksi-Project"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/aangelo96/Konveksi-Project">View Demo</a>
+    <p> Email Contributors for Demo </p>
     ·
     <a href="https://github.com/aangelo96/Konveksi-Project/issues">Report Bug</a>
     ·
