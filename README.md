@@ -70,9 +70,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!--[![Product Name Screen Shot][product-screenshot]](https://example.com)-->
 
-Mobile App created using React Native for clothes konveksion
+Mobile App created using React Native for custom clothing e-commerce
 
 
 
