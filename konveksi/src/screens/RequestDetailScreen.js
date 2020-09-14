@@ -26,7 +26,7 @@ const RequestDetailScreen = ({navigation}) => {
         const token = await AsyncStorage.getItem('token');
 
         try {
-          const response = await trackerApi.post('/order', {color:colorState, secColor:secondColor, option:colorOption, amount:amount, budget:budget, imgs:["","",""]}, {headers:{'Authorization':`Bearer ${token}`}});
+          const response = await trackerApi.post('/order', {color:colorState, secColor:secondColor, option:colorOption, amount:amount, budget:budget, imgs:image}, {headers:{'Authorization':`Bearer ${token}`}});
           //navigate to tracking screen
           navigation.navigate('Request');
           navigation.navigate('Ongoing', {track:response.data});
@@ -48,6 +48,27 @@ const RequestDetailScreen = ({navigation}) => {
     if(uri) {
       setImage([...image, uri]);
     }
+    //console.log(uri);
+    //await ImagePicker.getCameraPermissionsAsync();
+    /*try {
+      console.log('1');
+        let result = await ImagePicker.launchImageLibraryAsync({
+          mediaTypes: ImagePicker.MediaTypeOptions.All,
+          allowsEditing: true,
+          aspect: [4, 3],
+          quality: 1,
+        });
+        if (!result.cancelled) {
+          setImage([...image], result.uri );
+        }
+
+        console.log(result);
+      } catch (E) {
+        console.log(E);
+      }*/
+    //f(uri) {
+    //  setImage([...image, uri]);
+    //}
   };
 
   //Function to remove an image from image array
@@ -57,7 +78,7 @@ const RequestDetailScreen = ({navigation}) => {
         return result;
       }
     }));
-  }
+  };
 
   return (
     <View style={{flex:1, height:Dimensions.get('window').height, backgroundColor:'white'}}>
@@ -157,6 +178,7 @@ const RequestDetailScreen = ({navigation}) => {
           data={image}
           renderItem={
             ({item}) => {
+              console.log(item);
               return (
                 <View>
                 <Image source={{ uri: item }} style={{ width: Dimensions.get('window').width, height: undefined, aspectRatio:1, marginTop:5 }} />
