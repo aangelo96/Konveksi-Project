@@ -72,8 +72,9 @@
 
 <!--[![Product Name Screen Shot][product-screenshot]](https://example.com)-->
 
-Mobile App created using React Native for custom clothing e-commerce
-
+An e-commerce Mobile App created using React Native for custom clothing businesses.
+Background :
+There are so many small to medium businesses in Indonesia that provide service on creating custom clothings for clients. However, there aren't any e-commerce platform in Indonesia to cater these businesses.
 
 
 ### Built With
